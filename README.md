@@ -2,4 +2,7 @@
 ## 一、数据
 ### 1.HG002 HiFi数据来自GIAB
 * 参考文献 [Detection of mosaic and population-level structural variants with Sniffles2](https://www.nature.com/articles/s41587-023-02024-y)
+## 二、创建Sniffles运行环境
+### 1.创建专属的conda环境并安装Sniffles
 
+    conda create -n Sniffles2 python ==3.10.15 -y
