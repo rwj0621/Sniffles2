@@ -47,6 +47,7 @@
          --threads 8
         
 * 输出
+[输出文件](https://github.com/rwj0621/Sniffles2/blob/main/HG002_output.vcf)
           
     
 
