@@ -15,21 +15,29 @@
 * 验证python版本
 
     python --version 
-    #正确显示Python 3.10.15  
+    # 正确显示Python 3.10.15  
 ### 2.安装Sniffles2
 
     conda install sniffles=2.7.2
 * 验证安装
 
         sniffles --version
-        #正确显示 Sniffles2, Version 2.7.2   
+        # 正确显示 Sniffles2, Version 2.7.2   
     
 ### 3.安装所有依赖
 
     conda install pysam>=0.21.0 edlib>=1.3.9 psutil>=5.9.4 numpy>=2.2.0 -y
 * 验证安装
 
-     python -c "import edlib; print('edlib导入成功')"
+        python -c "import edlib; print('edlib导入成功')"
+        # 正确显示 edlib导入成功
+        python -c "import pysam; print('pysam版本:', pysam.__version__)"
+        # 正确显示版本号 pysam版本: 0.23.3
+        python -c "import psutil; print('psutil版本:', psutil.__version__)"
+        # 正确显示版本号 psutil版本: 7.2.1
+        python -c "import numpy; print('numpy版本:', numpy.__version__)"
+        # 正确显示版本号 numpy版本: 2.2.6
+        
           
     
 
