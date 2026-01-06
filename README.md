@@ -11,6 +11,7 @@
 ### 1.创建conda环境并安装Sniffles2
 
     conda create -n sniffles2 python=3.10.15 -y
+直接使用上面命令遇到了清华镜像源的连接问题（A3服务器内存满了，换用A2服务器）
 * 验证python版本
 
     python --version 
@@ -25,5 +26,5 @@
     
 ### 3.
     
-直接使用上面命令遇到了清华镜像源的连接问题（A3服务器内存满了，换用A2服务器）
+
 
