@@ -14,6 +14,7 @@
 ### 1.创建conda环境并安装Sniffles2
 
     conda create -n sniffles2 python=3.10.15 -y
+    conda activate sniffles2
 直接使用上面命令遇到了清华镜像源的连接问题（A3服务器内存满了，换用A2服务器）
 * 验证python版本
 
@@ -58,6 +59,14 @@
       # 按SV类型统计
       grep -v "^#" HG002_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
 ## 三、使用truvari与金标准比较
+### 1.创建conda环境环境并安装truvari
+
+    conda create -n Truvari python=3.9.16 -y
+    conda activate Truvari 
+    pip install truvari==5.3.0
+    # bcftools 用于排序 vcf 文件中 chr 顺序
+    conda install -c bioconda -c conda-forge bcftools -y  
+    
 
           
     
