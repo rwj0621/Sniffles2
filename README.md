@@ -11,3 +11,5 @@
 ### 1.创建conda环境并安装Sniffles2
 
     conda create -n sniffles2 python=3.10.15 -y
+直接使用上面命令遇到了清华镜像源的连接问题
+
