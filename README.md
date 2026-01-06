@@ -37,7 +37,16 @@
         # 正确显示版本号 psutil版本: 7.2.1
         python -c "import numpy; print('numpy版本:', numpy.__version__)"
         # 正确显示版本号 numpy版本: 2.2.6
+### 4.运行Sniffles2
+* 输入
+
+        sniffles -i /data/renweijie/data/HG002/HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam \
+         -v /data/renweijie/data/HG002/Sniffles2/HG002_output.vcf \
+         --reference  /data/renweijie/data/GRCh37/hs37d5.fa \
+         --tandem-repeats /data/renweijie/data/GRCh37/human_hs37d5.trf.bed \
+         --threads 8
         
+* 输出
           
     
 
