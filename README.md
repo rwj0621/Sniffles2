@@ -14,8 +14,8 @@
 直接使用上面命令遇到了清华镜像源的连接问题（A3服务器内存满了，换用A2服务器）
 * 验证python版本
 
-    python --version 
-    #正确显示Python 3.10.15  
+        python --version 
+        # 正确显示Python 3.10.15  
 ### 2.安装Sniffles2
 
     conda install sniffles=2.7.2
