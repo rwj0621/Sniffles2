@@ -9,6 +9,8 @@
         certutil -hashfile "E:\迅雷下载\HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam" MD5
 ### 2.HG002的金标准（高置信SV）
 * 下载路径[HG002_SVs_Tier1_v0.6.vcf.gz](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NIST_SV_v0.6/)
+### 3.HCC1395数据
+* 肿瘤下载路径[HCC1395.GRCh38.bam](https://downloads.pacbcloud.com/public/revio/2023Q2/HCC1395/HCC1395/analysis/HCC1395.GRCh38.bam)
     
 ## 二、创建Sniffles2运行环境
 ### 1.创建conda环境并安装Sniffles2
