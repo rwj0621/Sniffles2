@@ -8,7 +8,7 @@
         certutil -hashfile "E:\迅雷下载\HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam" MD5
     
 ## 二、创建Sniffles2运行环境
-** 1.创建conda环境并安装Sniffles2 **
+**1.创建conda环境并安装Sniffles2**
 
     conda create -n sniffles2 python=3.10.15 -y
 *验证python版本
