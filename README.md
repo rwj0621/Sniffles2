@@ -24,7 +24,13 @@
         sniffles --version
         #正确显示 Sniffles2, Version 2.7.2   
     
-### 3.
+### 3.安装所有依赖
+
+    conda install pysam>=0.21.0 edlib>=1.3.9 psutil>=5.9.4 numpy>=2.2.0 -y
+* 验证安装
+
+     python -c "import edlib; print('edlib导入成功')"
+          
     
 
 
