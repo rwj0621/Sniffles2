@@ -11,14 +11,14 @@
 ### 1.创建conda环境并安装Sniffles2
 
     conda create -n sniffles2 python=3.10.15 -y
-*验证python版本
+* 验证python版本
 
     python --version 
     #正确显示Python 3.10.15  
 ### 2.安装Sniffles2
 
     conda install sniffles=2.7.2
-*验证安装
+* 验证安装
 
     sniffles --version
     #正确显示 Sniffles2, Version 2.7.2   
