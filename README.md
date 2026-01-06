@@ -15,7 +15,7 @@
 * 验证python版本
 
     python --version 
-    # 正确显示Python 3.10.15  
+    #正确显示Python 3.10.15  
 ### 2.安装Sniffles2
 
     conda install sniffles=2.7.2
