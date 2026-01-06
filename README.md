@@ -48,6 +48,13 @@
         
 * 输出
 [输出文件](https://github.com/rwj0621/Sniffles2/blob/main/HG002_output.vcf)
+* 统计SV数量
+
+      # 统计总SV数
+      grep -v "^#" HG002_output.vcf | wc -l
+      # 按SV类型统计
+      grep -v "^#" HG002_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
+* 
           
     
 
