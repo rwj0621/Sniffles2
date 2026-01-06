@@ -8,7 +8,7 @@
         certutil -hashfile "E:\迅雷下载\HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam" MD5
     
 ## 二、创建Sniffles2运行环境
-**1.创建conda环境并安装Sniffles2**
+### 1.创建conda环境并安装Sniffles2
 
     conda create -n sniffles2 python=3.10.15 -y
 *验证python版本
@@ -16,6 +16,14 @@
     python --version 
     #正确显示Python 3.10.15  
 ### 2.安装Sniffles2
+
+    conda install sniffles=2.7.2
+*验证安装
+
+    sniffles --version
+    #正确显示 Sniffles2, Version 2.7.2   
+    
+### 3.
     
 直接使用上面命令遇到了清华镜像源的连接问题（A3服务器内存满了，换用A2服务器）
 
