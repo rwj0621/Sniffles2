@@ -3,9 +3,12 @@
 ### 1.HG002 HiFi数据来自GIAB
 * 参考文献 [Detection of mosaic and population-level structural variants with Sniffles2](https://www.nature.com/articles/s41587-023-02024-y)
 * 下载路径[HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/HG002_NA24385_son/PacBio_CCS_15kb/alignment/)
+  HG002的比对、10x+家系单倍型分型高保真长读长hs37d5比对数据
 * 验证数据的MD5
 
         certutil -hashfile "E:\迅雷下载\HG002.Sequel.15kb.pbmm2.hs37d5.whatshap.haplotag.RTG.10x.trio.bam" MD5
+### 2.HG002的金标准（高置信SV）
+* 下载路径[HG002_SVs_Tier1_v0.6.vcf.gz](https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NIST_SV_v0.6/)
     
 ## 二、创建Sniffles2运行环境
 ### 1.创建conda环境并安装Sniffles2
@@ -54,7 +57,8 @@
       grep -v "^#" HG002_output.vcf | wc -l
       # 按SV类型统计
       grep -v "^#" HG002_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
-* 
+## 三、使用truvari与金标准比较
+
           
     
 
