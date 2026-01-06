@@ -20,8 +20,8 @@
     conda install sniffles=2.7.2
 * 验证安装
 
-    sniffles --version
-    #正确显示 Sniffles2, Version 2.7.2   
+        sniffles --version
+        #正确显示 Sniffles2, Version 2.7.2   
     
 ### 3.
     
