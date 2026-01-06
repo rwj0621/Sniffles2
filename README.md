@@ -63,6 +63,7 @@
 [输出文件](https://github.com/rwj0621/Sniffles2/blob/main/HG002_output.vcf)
 * 统计SV数量
 
+      cd /data/renweijie/data/HG002/Sniffles2
       # 统计总SV数
       grep -v "^#" HG002_output.vcf | wc -l
       # 按SV类型统计
