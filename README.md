@@ -76,6 +76,28 @@
          --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
          --threads 8
+* 统计SV数量
+
+      cd /data/renweijie/data/HG002/Sniffles2
+      # 统计总SV数
+      grep -v "^#" HCC1395_output.vcf | wc -l
+      # 按SV类型统计
+      grep -v "^#" HCC1395_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
+### 6.运行Sniffles2（HCC1395_BL）
+* 输入
+
+        sniffles -i /data/renweijie/data/HCC1395/HCC1395-BL.GRCh38.bam \
+         -v /data/renweijie/data/HG002/Sniffles2/HCC1395-BL_output.vcf \
+         --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
+         --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
+         --threads 8
+* 统计SV数量
+
+      cd /data/renweijie/data/HG002/Sniffles2
+      # 统计总SV数
+      grep -v "^#" HCC1395-BL_output.vcf | wc -l
+      # 按SV类型统计
+      grep -v "^#" HCC1395-BL_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
 ## 三、使用truvari与金标准比较
 ### 1.创建conda环境环境并安装truvari
 
