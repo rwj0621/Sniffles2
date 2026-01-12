@@ -94,7 +94,7 @@
 <img width="972" height="110" alt="image" src="https://github.com/user-attachments/assets/a0754f12-93e4-45e2-abb7-338b40ed08af" />
 
 #### （3）合并分析
-*输入
+* 输入
 
          sniffles --input /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395-BL_output.snf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_output.snf \
          --vcf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
@@ -103,14 +103,17 @@
 <img width="1306" height="57" alt="image" src="https://github.com/user-attachments/assets/67d9f5b4-10f0-4dd1-b4c2-61e572f16d93" />
 
 #### （4）体细胞SV
-*安装bactools
+* 安装bactools
 
         conda install -c bioconda bcftools
-*输入
+* 输入
 
         bcftools view -i "SUPP_VEC = '01'" \
         /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
         > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf
+* 统计SV数量
+
+        grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l       
 ### 7. HCC1395 体细胞SV检测
 * 输入
 
