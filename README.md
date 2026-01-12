@@ -68,36 +68,36 @@
       grep -v "^#" HG002_output.vcf | wc -l
       # 按SV类型统计
       grep -v "^#" HG002_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
-### 5.运行Sniffles2（HCC1395）
+### 5.运行Sniffles2（HCC1395）参照文献severus代码部分
+#### (1)分析肿瘤样本（HCC1395）
 * 输入
 
         sniffles -i /data/renweijie/data/HCC1395/HCC1395.GRCh38.bam \
-         -v /data/renweijie/data/HG002/Sniffles2/HCC1395_output.vcf \
+         -v /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_output.vcf \
+         --snf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_output.snf \
          --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
-         --threads 8
-* 统计SV数量
+         --threads 4 \
+         --minsvlen 50 --allow-overwrite
+  <img width="974" height="578" alt="image" src="https://github.com/user-attachments/assets/3e5e8969-936c-4399-a391-2f9de9a2a50a" />
 
-      cd /data/renweijie/data/HG002/Sniffles2
-      # 统计总SV数
-      grep -v "^#" HCC1395_output.vcf | wc -l
-      # 按SV类型统计
-      grep -v "^#" HCC1395_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
-### 6.运行Sniffles2（HCC1395_BL）
+#### (2)分析正常样本（HCC1395_BL）
 * 输入
 
         sniffles -i /data/renweijie/data/HCC1395/HCC1395-BL.GRCh38.bam \
-         -v /data/renweijie/data/HG002/Sniffles2/HCC1395-BL_output.vcf \
+         -v /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395-BL_output.vcf \
+         --snf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395-BL_output.snf \
          --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
-         --threads 8
-* 统计SV数量
+         --threads 4 \
+         --minsvlen 50 --allow-overwrite
+#### （3）合并分析
+*输入
 
-      cd /data/renweijie/data/HG002/Sniffles2
-      # 统计总SV数
-      grep -v "^#" HCC1395-BL_output.vcf | wc -l
-      # 按SV类型统计
-      grep -v "^#" HCC1395-BL_output.vcf | grep -o "SVTYPE=[^;]*" | cut -d= -f2 | sort | uniq -c
+         sniffles --input sniffles_normal.snf sniffles_tumor.snf \
+         --vcf merge_normal_tumor.vcf \
+         --allow-overwrite \
+         --threads 4
 ### 7. HCC1395 体细胞SV检测
 * 输入
 
