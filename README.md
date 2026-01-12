@@ -109,8 +109,8 @@
          --mosaic
 * 统计SV数量
 
-    cd /data/renweijie/data/HG002/Sniffles2
-    grep -v "^#" HCC1395_SomaticSV_output.vcf | wc -l
+        cd /data/renweijie/data/HG002/Sniffles2
+        grep -v "^#" HCC1395_SomaticSV_output.vcf | wc -l
 ## 三、使用truvari与金标准比较
 ### 1.创建conda环境环境并安装truvari
 
