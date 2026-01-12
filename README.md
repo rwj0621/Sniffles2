@@ -91,13 +91,25 @@
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
          --threads 4 \
          --minsvlen 50 --allow-overwrite
+<img width="972" height="110" alt="image" src="https://github.com/user-attachments/assets/a0754f12-93e4-45e2-abb7-338b40ed08af" />
+
 #### （3）合并分析
 *输入
 
-         sniffles --input sniffles_normal.snf sniffles_tumor.snf \
-         --vcf merge_normal_tumor.vcf \
+         sniffles --input /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395-BL_output.snf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_output.snf \
+         --vcf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
          --allow-overwrite \
          --threads 4
+<img width="1306" height="57" alt="image" src="https://github.com/user-attachments/assets/67d9f5b4-10f0-4dd1-b4c2-61e572f16d93" />
+#### （4）体细胞SV
+*安装bactools
+
+        conda install -c bioconda bcftools
+*输入
+
+        bcftools view -i "SUPP_VEC = '01'" \
+        /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
+        > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf
 ### 7. HCC1395 体细胞SV检测
 * 输入
 
