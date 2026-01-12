@@ -127,6 +127,7 @@
 
         cd /data/renweijie/data/HG002/Sniffles2
         grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l
+        #输出2190个
 ## 三、使用truvari与金标准比较
 ### 1.创建conda环境环境并安装truvari
 
@@ -144,6 +145,7 @@
 * 统计个数
 
       wc -l /data/renweijie/data/HCC1395/HCC1395_PacBio.txt
+      # 除去头那一行 一共 2348个
      
     
 
