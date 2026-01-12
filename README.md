@@ -114,7 +114,7 @@
 * 统计SV数量
 
         grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l       
-### 7. HCC1395 体细胞SV检测
+### 6. HCC1395 体细胞SV检测（sniffles自带）
 * 输入
 
          sniffles -i /data/renweijie/data/HCC1395/HCC1395.GRCh38.bam \
@@ -134,7 +134,17 @@
     conda activate Truvari 
     pip install truvari==5.3.0
     # bcftools 用于排序 vcf 文件中 chr 顺序
-    conda install -c bioconda -c conda-forge bcftools -y  
+    conda install -c bioconda -c conda-forge bcftools -y 
+### 2.筛选金标准raw calls里只用PacBio检测出来的变异
+* 筛选
+  
+       awk 'BEGIN {FS=OFS="\t"} NR==1 || $9==1' \
+      /data/renweijie/data/HCC1395/13059_2022_2816_MOESM3_ESM.txt \
+      > /data/renweijie/data/HCC1395_PacBio.txt
+* 统计个数
+
+      wc -l /data/renweijie/data/HCC1395/HCC1395_PacBio.txt
+     
     
 
           
