@@ -101,6 +101,7 @@
          --allow-overwrite \
          --threads 4
 <img width="1306" height="57" alt="image" src="https://github.com/user-attachments/assets/67d9f5b4-10f0-4dd1-b4c2-61e572f16d93" />
+
 #### （4）体细胞SV
 *安装bactools
 
@@ -122,7 +123,7 @@
 * 统计SV数量
 
         cd /data/renweijie/data/HG002/Sniffles2
-        grep -v "^#" HCC1395_SomaticSV_output.vcf | wc -l
+        grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l
 ## 三、使用truvari与金标准比较
 ### 1.创建conda环境环境并安装truvari
 
