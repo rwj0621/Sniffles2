@@ -147,6 +147,11 @@
       wc -l /data/renweijie/data/HCC1395/HCC1395_PacBio.txt
       # 除去头那一行 一共 2348个
 ### 3.将金标准文件转换为vcf
+## 四、HCC1395结果运行neosv
+* 问题：如果直接拿vcf文件运行neosv会报错。原因：neosv只支持有明确断点的SV（BND类型）
+* 解决方案：将vcf文件转换成bedpe
+### 1.使用svtools转换
+* 创建环境并安装svtools
     
 
           
