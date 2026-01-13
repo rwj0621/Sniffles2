@@ -151,7 +151,14 @@
 * 问题：如果直接拿vcf文件运行neosv会报错。原因：neosv只支持有明确断点的SV（BND类型）
 * 解决方案：将vcf文件转换成bedpe
 ### 1.使用svtools转换
-* 创建环境并安装svtools
+* 创建环境并安装[svtools](https://github.com/hall-lab/svtools?tab=readme-ov-file)
+
+       # 创建一个名为svtools的新环境，使用Python 3.8
+       conda create -n svtools python=3.8 -y
+       # 激活环境
+       conda activate svtools
+       #安装svtools
+       pip install svtools
     
 
           
