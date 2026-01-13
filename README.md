@@ -146,7 +146,7 @@
 
       wc -l /data/renweijie/data/HCC1395/HCC1395_PacBio.txt
       # 除去头那一行 一共 2348个
-     
+### 3.将金标准文件转换为vcf
     
 
           
