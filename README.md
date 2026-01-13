@@ -159,8 +159,22 @@
        conda activate svtools
        #安装svtools
        pip install svtools
-    
+* vcftobedpe 将vcf文件转换成bedpe
 
+       svtools vcftobedpe \
+       -i /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.vcf \
+       -o /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe
+* 去掉转换后bedpe的注释行并排序
+  注：表头也有# 直接输入以下命令会把表头也删掉，因此，先把bedpe文件表头的#去掉
+  
+      svtools vcftobedpe \
+      -i /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.vcf \
+      -o /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe
+      # 使用awk过滤，保留表头和数据行
+      awk 'NR==1 || !/^#/' /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe | \
+      sort -k1,1V -k2,2n -k4,4V -k5,5n \
+      > /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.cleaned.bedpe
+  
           
     
 
