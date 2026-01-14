@@ -113,7 +113,8 @@
         > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf
 * 统计SV数量
 
-        grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l       
+        grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l
+        #输出2190个
 ### 6. HCC1395 体细胞SV检测（sniffles自带）
 * 输入
 
@@ -127,7 +128,7 @@
 
         cd /data/renweijie/data/HG002/Sniffles2
         grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l
-        #输出2190个
+        
 ## 三、使用truvari与金标准比较
 ### 1.创建conda环境环境并安装truvari
 
@@ -140,12 +141,20 @@
 * 筛选
   
        awk 'BEGIN {FS=OFS="\t"} NR==1 || $9==1' \
-      /data/renweijie/data/HCC1395/13059_2022_2816_MOESM3_ESM.txt \
-      > /data/renweijie/data/HCC1395_PacBio.txt
+      /data/renweijie/data/HCC1395/HCC1395_truth/13059_2022_2816_MOESM3_ESM.txt \
+      > /data/renweijie/data/HCC1395/HCC1395_truth/HCC1395_PacBio.txt
 * 统计个数
 
-      wc -l /data/renweijie/data/HCC1395/HCC1395_PacBio.txt
+      wc -l /data/renweijie/data/HCC1395/HCC1395_truth/HCC1395_PacBio.txt
       # 除去头那一行 一共 2348个
+      #按照从小到大的顺序排一下
+      # 1. 提取表头保存到新文件
+      head -n 1 /data/renweijie/data/HCC1395/HCC1395_truth/HCC1395_PacBio.txt > HCC1395_PacBio_sorted.txt
+      # 2. 跳过表头，按染色体（第2列）和位置（第3列，数值）排序，并追加到新文件
+      tail -n +2 /data/renweijie/data/HCC1395/HCC1395_truth/HCC1395_PacBio.txt | sort -V -k2,2 -k3,3n >> HCC1395_PacBio_sorted.txt
+      
+      
+      
 ### 3.将金标准文件转换为vcf
 ## 四、HCC1395结果运行neosv
 * 问题：如果直接拿vcf文件运行neosv会报错。原因：neosv只支持有明确断点的SV（BND类型）
@@ -164,16 +173,28 @@
        svtools vcftobedpe \
        -i /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.vcf \
        -o /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe
-* 去掉转换后bedpe的注释行并排序
-  注：表头也有# 直接输入以下命令会把表头也删掉，因此，先把bedpe文件表头的#去掉
+       svtools vcftobedpe \
+       -i /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf \
+       -o /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.bedpe
+       svtools vcftobedpe \
+       -i /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/severus_somatic.vcf \
+       -o /data/renweijie/Softwares/SV_tools/severus/HCC1395_Somatic_SV_output/somatic_SVs/severus_somatic.bedpe
   
-      svtools vcftobedpe \
-      -i /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.vcf \
-      -o /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe
+* 去掉转换后bedpe的注释行并排序
+  注：①表头也有# 直接输入以下命令会把表头也删掉，因此，先把bedpe文件表头的#去掉
+      ②转换后的bedpe有的起点不一样的原因是，SV检测工具会输出断点的置信区间
+
       # 使用awk过滤，保留表头和数据行
       awk 'NR==1 || !/^#/' /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.bedpe | \
       sort -k1,1V -k2,2n -k4,4V -k5,5n \
       > /data/renweijie/Softwares/SV_tools/manta/WGS_IL_1.manta.somatic.cleaned.bedpe
+
+     awk 'NR==1 || !/^#/' /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.bedpe | \
+      sort -k1,1V -k2,2n -k4,4V -k5,5n \
+      > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.cleaned.bedpe
+      
+* 提取neosv需要的列
+  
   
           
     
