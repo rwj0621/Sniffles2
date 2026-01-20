@@ -79,7 +79,7 @@
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
          --threads 4 \
          --minsvlen 50 --allow-overwrite
- * HCC1395(2022年PacBio)
+ * HCC1395(2022年PacBio_PBMM2)
 
         sniffles -i /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/tumor/tumor.pacbio.PBMM2.bam \
          -v /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_output.vcf \
@@ -98,7 +98,17 @@
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
          --threads 4 \
          --minsvlen 50 --allow-overwrite
-<img width="972" height="110" alt="image" src="https://github.com/user-attachments/assets/a0754f12-93e4-45e2-abb7-338b40ed08af" />
+* HCC1395(2022PacBio_PBMM2)
+
+
+        sniffles -i /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/nomal/normal.pacbio.PBMM2.bam \
+         -v /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_Normal_output.vcf \
+         --snf /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_Normal_output.snf \
+         --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
+         --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
+         --threads 4 \
+         --minsvlen 50 --allow-overwrite
+         
 
 #### （3）合并分析
 * 输入
@@ -107,7 +117,14 @@
          --vcf /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
          --allow-overwrite \
          --threads 4
-<img width="1306" height="57" alt="image" src="https://github.com/user-attachments/assets/67d9f5b4-10f0-4dd1-b4c2-61e572f16d93" />
+* HCC1395(2022PacBio_PBMM2)
+
+
+        sniffles --input /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_Normal_output.snf /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_output.snf \
+         --vcf /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_merge_normal_tumor.vcf \
+         --allow-overwrite \
+         --threads 4
+        
 
 #### （4）体细胞SV
 * 安装bactools
@@ -118,6 +135,13 @@
         bcftools view -i "SUPP_VEC = '01'" \
         /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_merge_normal_tumor.vcf \
         > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf
+* HCC1395(2022PacBio_PBMM2)
+
+
+        bcftools view -i "SUPP_VEC = '01'" \
+        /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_merge_normal_tumor.vcf \
+        > /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_somatic.vcf
+       
 * 统计SV数量
 
         grep -v "^#" /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.vcf | wc -l
