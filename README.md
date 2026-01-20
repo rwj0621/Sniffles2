@@ -79,8 +79,15 @@
          --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
          --threads 4 \
          --minsvlen 50 --allow-overwrite
-  <img width="974" height="578" alt="image" src="https://github.com/user-attachments/assets/3e5e8969-936c-4399-a391-2f9de9a2a50a" />
+ * HCC1395(2022年PacBio)
 
+        sniffles -i /data/renweijie/data/HCC1395/HCC1395_pacbio_PBMM2/tumor/tumor.pacbio.PBMM2.bam \
+         -v /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_output.vcf \
+         --snf /data/renweijie/Softwares/SV_tools/sniffles2/2022_HCC1395_PacBio_output.snf \
+         --reference  /data/renweijie/data/GRCh38/GRCh38.d1.vd1.fa \
+         --tandem-repeats /data/renweijie/data/GRCh38/human_GRCh38_no_alt_analysis_set.trf.bed \
+         --threads 4 \
+         --minsvlen 50 --allow-overwrite
 #### (2)分析正常样本（HCC1395_BL）
 * 输入
 
