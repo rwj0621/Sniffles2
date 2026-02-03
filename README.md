@@ -225,6 +225,9 @@
       > /data/renweijie/Softwares/SV_tools/sniffles2/HCC1395_somatic.cleaned.bedpe
       
 * 提取neosv需要的列
+
+<img width="746" height="388" alt="image" src="https://github.com/user-attachments/assets/1f93c801-c3cf-4967-a54c-fb9970e59639" />
+
   
   
           
